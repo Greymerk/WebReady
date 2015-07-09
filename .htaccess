@@ -1,0 +1,16 @@
+AuthName "Development Site"
+AuthType Basic
+AuthUserFile /home/brian/websites/voteready/.htpasswd
+require valid-user 
+
+<IfModule mod_rewrite.c>
+
+  RewriteEngine on
+
+  # Pass all requests not referring directly to files in the filesystem to index.php
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} !=/favicon.ico
+  RewriteRule ^ index.php [L]
+</IfModule>
+
