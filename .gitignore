@@ -1,6 +1,1 @@
-*
-!.gitignore
-!/controllers/
-!/templates/
-!/views/
-!/webready/
+style/

@@ -1,14 +1,16 @@
 <?php
 
-class Router { 
+class Request{
 
 	function __construct(){
 		$base_url = $this->getCurrentUri();
-		$this->routes = array();
+		$this->path = array();
 		foreach(explode('/', $base_url) as $route){
 			if(trim($route) != '')
-				array_push($this->routes, $route);
+				array_push($this->path, $route);
 		}
+		$this->method = $_SERVER['REQUEST_METHOD'];
+		$this->content = $_GET;
 	}
 
 	function getCurrentUri(){
@@ -19,9 +21,16 @@ class Router {
 		return $uri;
 	}
 
-	function getRoutes(){
-		return $this->routes;
+	function getPath(){
+		return $this->path;
 	}
- 
+	
+	function getMethod(){
+		return $this->method;
+	}
+	
+	function getContent(){
+		return $this->content;
+	}
 }
 ?>
