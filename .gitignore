@@ -1,1 +1,6 @@
-index.php
+*
+!.gitignore
+!/controllers/
+!/templates/
+!/views/
+!/webready/
