@@ -18,25 +18,27 @@ class Controller implements ArrayAccess{
 		$this->has_children = false;
 	}
 	
-	public function process($args){
+	public function process($request){
 	
-		if(($this->has_view() && count($args) == 0) ||
+		$path = $request->getPath();
+	
+		if(($this->has_view() && count($path) == 0) ||
 		   ($this->has_view() && $this->has_children == false)){
 		   $callback = $this->view;
 			return $callback();
 		}
 
-		if(count($args) == 0){
+		if(count($path) == 0){
 			return null;
 		}
 	
-		if(!$this->has($args[0])){
+		if(!$this->has($path[0])){
 			return null;
 		}		
 
-		$ctrl = $this->vars[$args[0]]();
-		array_shift($args);
-		return $ctrl->process($args);
+		$ctrl = $this->vars[$path[0]]();
+		array_shift($path);
+		return $ctrl->process($request);
 	}
 	
 	public function has($name){

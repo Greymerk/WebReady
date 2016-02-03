@@ -2,19 +2,18 @@
 
 class View {
 
-	const template_dir = 'templates/';
 	protected $vars = array();
 
 	public function __construct() {
 	}
 
 	public function render($template_file) {
-		if (file_exists(View::template_dir.$template_file)) {
+		if (file_exists($template_file)) {
 			ob_start();
-			include View::template_dir.$template_file;
+			include $template_file;
 			return ob_get_clean();
 		} else {
-			throw new Exception('no template file ' . $template_file . ' present in directory ' . View::template_dir);
+			throw new Exception('no template file ' . $template_file);
 		}
 	}
 

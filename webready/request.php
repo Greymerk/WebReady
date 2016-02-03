@@ -10,7 +10,8 @@ class Request{
 				array_push($this->path, $route);
 		}
 		$this->method = $_SERVER['REQUEST_METHOD'];
-		$this->content = $_GET;
+		$this->get = $_GET;
+		$this->post = $_POST;
 	}
 
 	function getCurrentUri(){
@@ -29,8 +30,17 @@ class Request{
 		return $this->method;
 	}
 	
-	function getContent(){
-		return $this->content;
+	function getVars($type=null){
+	
+		if(!isset($type)){
+			$type = $this->method;
+		}
+	
+		if($type == "GET"){
+			return $this->get;
+		} else {
+			return $this->post;
+		}
 	}
 }
 ?>
