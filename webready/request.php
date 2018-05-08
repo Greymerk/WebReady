@@ -14,7 +14,7 @@ class Request{
 		$this->post = $_POST;
 	}
 
-	function getCurrentUri(){
+	public function getCurrentUri(){
 		$basepath = implode('/', array_slice(explode('/', $_SERVER['SCRIPT_NAME']), 0, -1)) . '/';
 		$uri = substr($_SERVER['REQUEST_URI'], strlen($basepath));
 		if (strstr($uri, '?')) $uri = substr($uri, 0, strpos($uri, '?'));
@@ -22,25 +22,27 @@ class Request{
 		return $uri;
 	}
 
-	function getPath(){
+	public function getPath(){
 		return $this->path;
 	}
 	
-	function getMethod(){
+	public function getMethod(){
 		return $this->method;
 	}
 	
-	function getVars($type=null){
-	
-		if(!isset($type)){
-			$type = $this->method;
-		}
-	
-		if($type == "GET"){
+	public function getParams(){
+		if($this->method == "GET"){
 			return $this->get;
-		} else {
+		}
+		
+		if($this->method == "POST"){
 			return $this->post;
 		}
+	}
+	
+	function shift(){
+		if(count($this->path) == 0) return;
+		array_shift($this->path);
 	}
 }
 ?>

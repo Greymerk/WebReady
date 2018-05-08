@@ -2,19 +2,20 @@
 
 class View {
 
+	const template_dir = 'templates/';
 	protected $vars = array();
 
 	public function __construct() {
 	}
 
-	public function render($template_file) {
-		if (file_exists($template_file)) {
-			ob_start();
-			include $template_file;
-			return ob_get_clean();
+	public function render($tpl) {
+		ob_start();
+		if (file_exists(View::template_dir.$tpl)) {
+			include View::template_dir.$tpl;
 		} else {
-			throw new Exception('no template file ' . $template_file);
+			include View::template_dir."empty.tpl";
 		}
+		return ob_get_clean();
 	}
 
 	public function __set($name, $value) {
