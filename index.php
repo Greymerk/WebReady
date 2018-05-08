@@ -11,6 +11,6 @@ $front = new FrontController();
 $request = new Request();
 
 $page = $front->process($request);
-echo $page->render("");
+echo $page->render();
 
 ?>

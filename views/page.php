@@ -7,8 +7,8 @@ class PageView extends View{
 		$this->css = glob("style/*.css");
 	}
 
-	public function render($tpl){		
-		return parent::render("page.tpl");
+	public function render($tpl="page.tpl"){		
+		return parent::render($tpl);
 	}
 }
 

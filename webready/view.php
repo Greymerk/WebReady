@@ -8,12 +8,12 @@ class View {
 	public function __construct() {
 	}
 
-	public function render($tpl) {
+	public function render($tpl="empty.tpl") {
 		ob_start();
 		if (file_exists(View::template_dir.$tpl)) {
 			include View::template_dir.$tpl;
 		} else {
-			include View::template_dir."empty.tpl";
+			//include View::template_dir."empty.tpl";
 		}
 		return ob_get_clean();
 	}
