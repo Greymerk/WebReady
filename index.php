@@ -1,11 +1,10 @@
 <?php
 
-define('__ROOT__', dirname(__FILE__));
-require_once(__ROOT__ . "/webready/controller.php");
-require_once(__ROOT__ . "/webready/request.php");
-require_once(__ROOT__ . "/webready/view.php");
+require_once "vendor/autoload.php";
 
-include_once(__ROOT__ . "/controllers/front.php");
+use WebReady\Controllers\FrontController as FrontController;
+use WebReady\Request as Request;
+
 $front = new FrontController();
 
 $request = new Request();

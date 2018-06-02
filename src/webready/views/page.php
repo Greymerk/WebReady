@@ -1,5 +1,9 @@
 <?php
 
+namespace WebReady\Views;
+
+use WebReady\View as View;
+
 class PageView extends View{
 
 	public function __construct(){

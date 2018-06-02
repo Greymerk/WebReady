@@ -1,5 +1,9 @@
 <?php
 
+namespace WebReady;
+
+use ArrayAccess;
+
 class Controller implements ArrayAccess{
 
 	protected $view;

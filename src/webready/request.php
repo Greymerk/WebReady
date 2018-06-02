@@ -1,5 +1,7 @@
 <?php
 
+namespace WebReady;
+
 class Request{
 
 	function __construct(){

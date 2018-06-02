@@ -1,5 +1,7 @@
 <?php
 
+namespace WebReady;
+
 class View {
 
 	const template_dir = 'templates/';
