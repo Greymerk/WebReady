@@ -2,9 +2,11 @@
 	"name" : "webready/webready",
 	"description" : "simple website core",
 	"license" : "proprietary",
+	"minimum-stability" : "dev",
 	"autoload" : {
 		"psr-4" : {
-			"WebReady\\" : "src/webready"
+			"WebReady\\" : "src/webready",
+			"Demo\\" : "src/demo"
 		}
 	}
 }

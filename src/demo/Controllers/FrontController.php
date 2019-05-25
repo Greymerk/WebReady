@@ -1,10 +1,10 @@
 <?php
 
-namespace WebReady\Controllers;
+namespace Demo\Controllers;
 
 use WebReady\Controller as Controller;
 use WebReady\Controllers\NotFoundController as NotFoundController;
-use WebReady\Views\PageView as PageView;
+use Demo\Views\PageView as PageView;
 
 class FrontController extends Controller{
 	

@@ -1,6 +1,6 @@
 <?php
 
-namespace WebReady\Controllers;
+namespace Demo\Controllers;
 
 use WebReady\Controller as Controller;
 

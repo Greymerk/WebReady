@@ -1,6 +1,6 @@
 <?php
 
-namespace WebReady\Views;
+namespace Demo\Views;
 
 use WebReady\View as View;
 
